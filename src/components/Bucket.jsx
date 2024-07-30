@@ -4,22 +4,29 @@ Command: npx gltfjsx@6.4.1 bucket.glb
 */
 
 import { useGLTF } from '@react-three/drei'
+import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('/bucket.glb')
+    const ref = useRef();
+    useFrame((state, delta) => {
+        ref.current.rotation.y += delta
+    })
+
+  const { nodes } = useGLTF('/bucket.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={ref}>
       <mesh geometry={nodes.Bucket_low_Bucket_low_0.geometry}>
-          <meshStandardMaterial color={`green`}/>
+          <meshStandardMaterial color={props.color}/>
       </mesh>
       <mesh geometry={nodes.Handle_low_Handle_low_0.geometry}>
-          <meshStandardMaterial color={`blue`}/>
+          <meshStandardMaterial color={props.color}/>
       </mesh>
       <mesh geometry={nodes.Label_low_Label_low_0.geometry}>
-          <meshStandardMaterial color={`green`}/>
+          <meshStandardMaterial color={props.color}/>
       </mesh>
       <mesh geometry={nodes.Pins_low_Pins_low_0.geometry}>
-          <meshStandardMaterial color={`blue`}/>
+          <meshStandardMaterial color={props.color}/>
       </mesh>
     </group>
   )

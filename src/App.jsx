@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         width: 100%;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 `;
 
@@ -17,7 +20,7 @@ export default function App() {
     <>
       <GlobalStyle />
       <Header/>
-      <BucketContainer/>
+      <BucketContainer color={`green`}/>
       <Footer/>
     </>
   )

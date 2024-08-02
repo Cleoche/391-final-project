@@ -2,6 +2,7 @@ import styled, {createGlobalStyle} from 'styled-components';
 import BucketContainer from "./components/BucketContainer.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import {ColorContextProvider} from "./components/ColorContextProvider.jsx";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -29,7 +30,9 @@ export default function App() {
       <GlobalStyle />
       <Header/>
         <ComponentWrapper>
-            <BucketContainer color={`green`}/>
+            <ColorContextProvider>
+                <BucketContainer/>
+            </ColorContextProvider>
         </ComponentWrapper>
       <Footer/>
     </>

@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 const BucketWrapper = styled.div`
     height: 50vh;
+    width: 50%;
+    margin: auto;
 `;
 
 export default function BucketContainer(props){

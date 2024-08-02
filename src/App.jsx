@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 import BucketContainer from "./components/BucketContainer.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
@@ -15,12 +15,22 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
+const ComponentWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: 700px) {
+        flex-direction: column;
+    }
+`;
+
 export default function App() {
   return (
     <>
       <GlobalStyle />
       <Header/>
-      <BucketContainer color={`green`}/>
+        <ComponentWrapper>
+            <BucketContainer color={`green`}/>
+        </ComponentWrapper>
       <Footer/>
     </>
   )

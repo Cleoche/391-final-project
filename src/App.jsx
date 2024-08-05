@@ -3,6 +3,7 @@ import BucketContainer from "./components/BucketContainer.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import {ColorContextProvider} from "./components/ColorContextProvider.jsx";
+import Input from "./components/ColorMixer.jsx";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -31,6 +32,7 @@ export default function App() {
       <Header/>
         <ComponentWrapper>
             <ColorContextProvider>
+                <Input/>
                 <BucketContainer/>
             </ColorContextProvider>
         </ComponentWrapper>

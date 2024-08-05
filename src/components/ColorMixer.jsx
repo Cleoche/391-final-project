@@ -54,13 +54,18 @@ export default function Input() {
 
     // Handle rgb value inputs and validate the inputs
     const handleRGBChange = (value, setter) => {
-        const num = parseInt(value, 10);
-        if ((num >= 0 && num <= 255) || value === '') {
-            setter(value); //Set the value
-            setErrorMessage(''); //Clear error message
-        } else {
-            //Give error message when there is an input error
-            setErrorMessage('Input must be between 0 and 255!!');
+        if (!value || /^[0-9]+$/.test(value)) {//Check if the input is empty or only digits
+            const num = parseInt(value, 10);
+            if ((num >= 0 && num <= 255) || value === '') {
+                setter(value); //Set the value
+                setErrorMessage(''); //Clear error message
+            } else {
+                //Give error message when there is an input error
+                setErrorMessage('Input must be between 0 and 255!!');
+            }
+        }
+        else{
+            setErrorMessage('Input must be an integer between 0 and 255!');
         }
     };
 

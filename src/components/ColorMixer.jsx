@@ -4,20 +4,62 @@ import ColorContext from "./ColorContextProvider.jsx";
 
 const StyledInput = styled.input`
     border: black dashed 1px;
-    margin: 5px;
+    max-width: 200px;
+    margin-inline: auto;
+    margin-bottom: 1vh;
+    @media screen and (min-width: 700px) {
+        width: 20vw;
+    }
+    height: 25px;
+    text-align: center;
+    font-size: 15px;
+`;
+
+const InputContainer = styled.div`
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    height: 10vh;
+    min-height: 125px;
+`;
+
+const InputsContainer = styled.div`
+@media screen and (min-width: 700px) {
+    display: flex;
+    flex-direction: row;
+}
+    
+    max-width: 500px;
+    justify-content: space-between;
+    margin: auto;
 `;
 
 const StyledButton = styled.button`
     border-radius: 50%;
     background-color: cadetblue;
-    margin: 10px;
+    margin-inline: auto;
+    margin-bottom: 2vh;
+    width: 200px;
+    padding: 7px;
+    font-size: 15px;
 `;
 
 const ColorDisplay = styled.div`
-    width: 100px;
-    height: 100px;
-    margin: 10px;
+    width: 80px;
+    height: 80px;
+    margin: auto;
     border: 1px solid black;
+`;
+
+const MixerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    margin-top: 5vh;
+    justify-content: center;
+    text-align: center;
 `;
 
 
@@ -59,41 +101,44 @@ export default function Input() {
     };
 
     return (
-        <div>
-            <div>
-                <StyledInput
-                    placeholder="Red 1"
-                    value={red1}
-                    onChange={(e) => setRed1(e.target.value)}
-                />
-                <StyledInput
-                    placeholder="Green 1"
-                    value={green1}
-                    onChange={(e) => setGreen1(e.target.value)}
-                />
-                <StyledInput
-                    placeholder="Blue 1"
-                    value={blue1}
-                    onChange={(e) => setBlue1(e.target.value)}
-                />
-            </div>
-            <div>
-                <StyledInput
-                    placeholder="Red 2"
-                    value={red2}
-                    onChange={(e) => setRed2(e.target.value)}
-                />
-                <StyledInput
-                    placeholder="Green 2"
-                    value={green2}
-                    onChange={(e) => setGreen2(e.target.value)}
-                />
-                <StyledInput
-                    placeholder="Blue 2"
-                    value={blue2}
-                    onChange={(e) => setBlue2(e.target.value)}
-                />
-            </div>
+        <MixerContainer>
+            <InputsContainer>
+                <InputContainer>
+                    <StyledInput
+                        placeholder="Red 1"
+                        value={red1}
+                        onChange={(e) => setRed1(e.target.value)}
+                    />
+                    <StyledInput
+                        placeholder="Green 1"
+                        value={green1}
+                        onChange={(e) => setGreen1(e.target.value)}
+                    />
+                    <StyledInput
+                        placeholder="Blue 1"
+                        value={blue1}
+                        onChange={(e) => setBlue1(e.target.value)}
+                    />
+                </InputContainer>
+                <InputContainer>
+                    <StyledInput
+                        placeholder="Red 2"
+                        value={red2}
+                        onChange={(e) => setRed2(e.target.value)}
+                    />
+                    <StyledInput
+                        placeholder="Green 2"
+                        value={green2}
+                        onChange={(e) => setGreen2(e.target.value)}
+                    />
+                    <StyledInput
+                        placeholder="Blue 2"
+                        value={blue2}
+                        onChange={(e) => setBlue2(e.target.value)}
+                    />
+                </InputContainer>
+            </InputsContainer>
+
             <StyledButton onClick={handleSubmit}>Calculate Average</StyledButton>
             {averagedColor && (
                 <div>
@@ -102,6 +147,6 @@ export default function Input() {
                     <p>{hexColor}</p>
                 </div>
             )}
-        </div>
+        </MixerContainer>
     );
 }

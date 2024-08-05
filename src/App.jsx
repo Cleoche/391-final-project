@@ -19,10 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 const ComponentWrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    @media screen and (max-width: 700px) {
-        flex-direction: column;
-    }
+    flex-direction: column;
 `;
 
 export default function App() {

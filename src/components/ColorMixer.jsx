@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import ColorContext from "./ColorContextProvider.jsx";
+//Paige Li's component ColoxMixer
 
 // Styled components for input, button, color display to showcase color, and error messages
 const StyledInput = styled.input`
